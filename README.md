@@ -26,7 +26,7 @@ CSS / Tailwind (if used)	Styling
 LocalStorage	Persistent data
 📸 Preview
 
-![Todo App Screenshot](./assets/screenshot.png)
+![Todo App Screenshot](./public/assets/screenshot.png)
 
 
 🧩 Project Structure
