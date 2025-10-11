@@ -1,73 +1,80 @@
-# React + TypeScript + Vite
+:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📝 TypeScript Todo List
 
-Currently, two official plugins are available:
+A simple, elegant Todo List app built using React + TypeScript + Vite.
+This project focuses on clean architecture, strong typing, and a responsive UI — perfect for beginners exploring TypeScript in React.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Features
 
-## React Compiler
+✅ Add, toggle, and delete tasks
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+💾 Data persistence with localStorage
 
-## Expanding the ESLint configuration
+⚡ Built with Vite for lightning-fast development
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🎨 Simple and responsive UI (mobile-friendly)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🧠 Fully typed with TypeScript for better reliability and scalability
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+🛠️ Tech Stack
+Tool	Purpose
+React	UI library
+TypeScript	Static typing
+Vite	Development & bundling
+CSS / Tailwind (if used)	Styling
+LocalStorage	Persistent data
+📸 Preview
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+![Todo App Screenshot](./assets/screenshot.png)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+🧩 Project Structure
+src/
+ ┣ components/
+ ┃ ┗ Navbar.tsx
+ ┣ types/
+ ┃ ┗ index.ts
+ ┣ hooks/
+ ┃ ┗ useTodos.ts
+ ┣ App.tsx
+ ┣ main.tsx
+ ┗ styles.css
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+⚙️ Getting Started
+1️⃣ Clone the repository
+git clone https://github.com/aadil-qamri/ts-todolist.git
+cd ts-todolist
+
+2️⃣ Install dependencies
+npm install
+
+3️⃣ Run the app
+npm run dev
+
+4️⃣ Open in browser
+
+Visit https://ts-todolist-tau.vercel.app/
+
+💡 Future Improvements
+
+Add task categories or priority levels
+
+Implement drag-and-drop reordering
+
+Add filter tabs (All / Active / Completed)
+
+Dark mode toggle 🌙
+
+Backend integration (Firebase / Supabase)
+
+🧑‍💻 Author
+
+Aadil Qamri
+💼 GitHub
+ • 🌐 Portfolio
+ • ✉️ Email
+
+⭐️ Show Your Support
+
+If you like this project, give it a star ⭐ on GitHub — it helps a lot!

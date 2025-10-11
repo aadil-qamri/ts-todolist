@@ -1,6 +1,9 @@
 import './App.css'
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
+import { Slide } from 'react-toastify';
 import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 function App() {
@@ -33,7 +36,7 @@ function App() {
   const togglefinish = () => {
     setshowFinish(!showfinish)
   }
-  
+
 
 
   const handleEdit = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -53,10 +56,34 @@ function App() {
     if (!todo.trim()) return
     setTodos([...todos, { id: uuidv4(), todo, isCompleted: false }])
     setTodo("")
+    toast.success('Saved todo', {
+      position: "top-right",
+      autoClose: 1696,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Slide,
+    });
   }
   const handleDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
     let id = e.currentTarget.name
+    confirm("Are you sure ?")
     setTodos(prev => prev.filter(item => item.id !== id));
+    toast.warn('Removed todo', {
+      position: "top-right",
+      autoClose: 1696,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Slide,
+    });
+
   }
   const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     let id = e.target.name
@@ -74,7 +101,14 @@ function App() {
         <h1 className='font-black text-3xl text-center'>iTask - manage all your todos in one place</h1>
         <div className="addTodo my-5 flex flex-col gap-4">
           <h2 className='text-lg font-bold'>Add a todo</h2>
-          <input onChange={handleChange} value={todo} className='bg-white w-full rounded-lg px-5 py-2' type="text" placeholder='Enter a todo' />
+          <input onChange={handleChange} onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+            if (e.key === "Enter") {
+              e.preventDefault(); // optional, prevents default behavior
+              if (!todo.trim()) return; // ignore empty todos
+              handleAdd(); // call your function to add the todo
+              setTodo(""); // clear the input
+            }
+          }} value={todo} className='bg-white w-full rounded-lg px-5 py-2' type="text" placeholder='Enter a todo' />
           <button onClick={handleAdd} className='cursor-pointer bg-green-700 hover:bg-green-800 p-3 py-1 text-sm font-semibold text-white  rounded-[15px] mx-6 '>Save</button>
         </div>
         <input onChange={togglefinish} className='accent-green-600 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 cursor-pointer mr-2' type="checkbox" checked={showfinish} />Show Finished
@@ -95,6 +129,19 @@ function App() {
           })}
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={1696}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Slide}
+      />
     </>
   )
 }
