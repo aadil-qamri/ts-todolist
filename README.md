@@ -1,80 +1,92 @@
-:
+# ✅ TypeScript Todo List
 
-📝 TypeScript Todo List
+A clean, type-safe task manager built with **React** and **TypeScript** — focused on practicing static typing, component architecture, and state management.
 
-A simple, elegant Todo List app built using React + TypeScript + Vite.
-This project focuses on clean architecture, strong typing, and a responsive UI — perfect for beginners exploring TypeScript in React.
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-blue?style=flat-square&logo=typescript)
 
-🚀 Features
+## 🚀 Features
 
-✅ Add, toggle, and delete tasks
+- ✏️ **Add Tasks** — Create new todo items
+- ✅ **Complete Tasks** — Mark tasks as done
+- 🗑️ **Delete Tasks** — Remove tasks from the list
+- 🔷 **TypeScript** — Fully typed components, props, and state
+- ⚛️ **React Hooks** — `useState` for local state management
+- 🧩 **Component-Based** — Clean separation of concerns
 
-💾 Data persistence with localStorage
+## 🛠️ Tech Stack
 
-⚡ Built with Vite for lightning-fast development
+| Layer | Technology |
+|---|---|
+| Framework | React 18 |
+| Language | TypeScript |
+| State | React Hooks (useState) |
+| Styling | CSS |
+| Build Tool | Vite / Create React App |
 
-🎨 Simple and responsive UI (mobile-friendly)
+## 🎯 What I Learned
 
-🧠 Fully typed with TypeScript for better reliability and scalability
+This project was built to practice:
+- Defining **TypeScript interfaces** for component props
+- Typing **React state** (`useState<Type>()`)
+- Typing **event handlers** (`React.ChangeEvent`, `React.FormEvent`)
+- Building **reusable typed components**
+- Managing **array state** (add, toggle, delete items)
 
-🛠️ Tech Stack
-Tool	Purpose
-React	UI library
-TypeScript	Static typing
-Vite	Development & bundling
-CSS / Tailwind (if used)	Styling
-LocalStorage	Persistent data
-📸 Preview
+## ⚙️ Getting Started
 
-![Todo App Screenshot](./public/assets/screenshot.png)
+### Installation
 
-
-🧩 Project Structure
-src/
- ┣ components/
- ┃ ┗ Navbar.tsx
- ┣ types/
- ┃ ┗ index.ts
- ┣ hooks/
- ┃ ┗ useTodos.ts
- ┣ App.tsx
- ┣ main.tsx
- ┗ styles.css
-
-⚙️ Getting Started
-1️⃣ Clone the repository
+```bash
 git clone https://github.com/aadil-qamri/ts-todolist.git
 cd ts-todolist
-
-2️⃣ Install dependencies
 npm install
-
-3️⃣ Run the app
 npm run dev
+```
 
-4️⃣ Open in browser
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-Visit https://ts-todolist-tau.vercel.app/
+## 📁 Project Structure
 
-💡 Future Improvements
+```
+ts-todolist/
+├── src/
+│   ├── components/
+│   │   ├── TodoItem.tsx    # Individual todo item component
+│   │   ├── TodoList.tsx    # List of todos
+│   │   └── AddTodo.tsx     # Input form component
+│   ├── types/
+│   │   └── index.ts        # TypeScript interfaces
+│   ├── App.tsx             # Root component
+│   └── main.tsx            # Entry point
+└── public/
+```
 
-Add task categories or priority levels
+## 💡 Key TypeScript Patterns Used
 
-Implement drag-and-drop reordering
+```typescript
+// Defining a Todo interface
+interface Todo {
+  id: number;
+  text: string;
+  completed: boolean;
+}
 
-Add filter tabs (All / Active / Completed)
+// Typed component props
+interface TodoItemProps {
+  todo: Todo;
+  onToggle: (id: number) => void;
+  onDelete: (id: number) => void;
+}
 
-Dark mode toggle 🌙
+// Typed state
+const [todos, setTodos] = useState<Todo[]>([]);
+```
 
-Backend integration (Firebase / Supabase)
+## 📄 License
 
-🧑‍💻 Author
+[MIT](LICENSE)
 
-Aadil Qamri
-💼 GitHub
- • 🌐 Portfolio
- • ✉️ Email
+---
 
-⭐️ Show Your Support
-
-If you like this project, give it a star ⭐ on GitHub — it helps a lot!
+Built with ❤️ by [Aadil Qamri](https://github.com/aadil-qamri)
